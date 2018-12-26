@@ -1,4 +1,4 @@
-# How-to-show-text-instead-of-checkboxes-in-boolean-columns-with-the-capability-to-search-by-this-text
+# How to show text instead of checkboxes in boolean columns with the capability to search by this text
 .NET, WPF, GridControl
 
 This example demonstrates how to show the required text instead of checkboxes in column cells. To specify an editor for an individual property, use the GridEditor [Data Annotation Attribute](https://docs.devexpress.com/WPF/16863/mvvm-framework/data-annotation-attributes) for a corresponding data source field as follows:
