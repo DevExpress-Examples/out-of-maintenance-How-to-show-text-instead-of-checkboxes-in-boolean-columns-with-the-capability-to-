@@ -14,9 +14,9 @@
         <local:ViewModel/>
     </Window.DataContext>
     <Window.Resources>
-        <DataTemplate x:Key="TextEditSettingsTemplate">
+        <DataTemplate x:Key="CheckEditSettingsTemplate">
             <ContentControl>
-                <dxe:TextEditSettings DisplayTextConverter="{local:BooleanToTextConverter}"/>
+                <dxe:CheckEditSettings DisplayTextConverter="{dxmvvm:BooleanToObjectConverter TrueValue=Yes, FalseValue=No}"/>
             </ContentControl>
         </DataTemplate>
         <DataTemplate x:Key="ComboBoxEditSettingsTemplate">

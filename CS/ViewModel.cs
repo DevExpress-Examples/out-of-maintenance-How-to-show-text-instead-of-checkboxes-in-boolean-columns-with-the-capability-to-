@@ -1,4 +1,5 @@
-﻿using DevExpress.Mvvm.DataAnnotations;
+﻿using DevExpress.Mvvm;
+using DevExpress.Mvvm.DataAnnotations;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,8 +10,11 @@ using System.Threading.Tasks;
 
 namespace WpfApplication75 {
 
-    public class ViewModel {
-        public ObservableCollection<TestData> List { get; set; }
+    public class ViewModel : ViewModelBase {
+        public ObservableCollection<TestData> List {
+            get { return GetProperty(() => List); }
+            set { SetProperty(() => List, value); }
+        }
         public ViewModel() {
             List = new ObservableCollection<TestData>();
             for (int i = 0; i < 30; i++) {
@@ -21,56 +25,24 @@ namespace WpfApplication75 {
     }
 
 
-    public class TestData : INotifyPropertyChanged {
-        int number;
-        string text;
-        bool isChecked;
-        bool isChecked_Attribute;
+    public class TestData : BindableBase {
         public int Number {
-            get { return number; }
-            set {
-                if (number == value)
-                    return;
-                number = value;
-                NotifyChanged("Number");
-            }
+            get { return GetProperty(() => Number); }
+            set { SetProperty(() => Number, value); }
         }
         public string Text {
-            get { return text; }
-            set {
-                if (text == value)
-                    return;
-                text = value;
-                NotifyChanged("Text");
-            }
+            get { return GetProperty(() => Text); }
+            set { SetProperty(() => Text, value); }
         }
         public bool IsChecked {
-            get { return isChecked; }
-            set {
-                if (isChecked == value)
-                    return;
-                isChecked = value;
-                NotifyChanged("IsChecked");
-            }
+            get { return GetProperty(() => IsChecked); }
+            set { SetProperty(() => IsChecked, value); }
         }
 
         [GridEditor(TemplateKey = "ComboBoxEditSettingsTemplate")]
         public bool IsChecked_Attribute {
-            get { return isChecked_Attribute; }
-            set {
-                if (isChecked_Attribute == value)
-                    return;
-                isChecked_Attribute = value;
-                NotifyChanged("IsChecked_Attribute");
-            }
+            get { return GetProperty(() => IsChecked_Attribute); }
+            set { SetProperty(() => IsChecked_Attribute, value); }
         }
-        void NotifyChanged(string propertyName) {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        #region INotifyPropertyChanged Members
-        public event PropertyChangedEventHandler PropertyChanged;
-        #endregion
     }
 }

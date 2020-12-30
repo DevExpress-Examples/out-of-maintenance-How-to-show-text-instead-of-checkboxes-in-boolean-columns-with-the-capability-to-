@@ -26,7 +26,7 @@ namespace WpfApplication75 {
     }
     public class EditorProvider : IMetadataProvider<bool> {
         public void BuildMetadata(MetadataBuilder<bool> builder) {
-            builder.GridEditor("TextEditSettingsTemplate");
+            builder.GridEditor("CheckEditSettingsTemplate");
         }
     }
 }
