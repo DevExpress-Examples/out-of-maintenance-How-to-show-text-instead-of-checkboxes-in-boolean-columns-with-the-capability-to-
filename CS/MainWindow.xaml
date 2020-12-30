@@ -16,6 +16,7 @@
     <Window.Resources>
         <DataTemplate x:Key="CheckEditSettingsTemplate">
             <ContentControl>
+                <!--Use TextEditSettings if you want to display your custom text in cells as well-->
                 <dxe:CheckEditSettings DisplayTextConverter="{dxmvvm:BooleanToObjectConverter TrueValue=Yes, FalseValue=No}"/>
             </ContentControl>
         </DataTemplate>
